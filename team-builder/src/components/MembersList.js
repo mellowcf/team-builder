@@ -18,7 +18,7 @@ const Title = styled.div`
 
 const CardContent = styled.div`
   display: flex;
-  text-align: left;
+  text-align: center;
   justify-content: space-between;
 `;
 

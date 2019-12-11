@@ -13,6 +13,7 @@ function App() {
   }, [])
 
   const addTeamMate = mate=>{
+    // eslint-disable-next-line
       const newMate = setMembers([...members, mate ])
   }
 
