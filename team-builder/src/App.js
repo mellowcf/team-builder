@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import data from './data'
+import MembersList from './components/MembersList'
+import Form from './components/Form'
 
 function App() {
+
+  const [members, setMembers] = useState([])
+
+  useEffect(()=>{
+    setMembers(data)
+  }, [])
+
+  const addTeamMate = mate=>{
+      const newMate = setMembers([...members, mate ])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form addTeamMate={addTeamMate}/>
+      {members.map(member=>{
+        return <MembersList key={member.id} info={member} />
+      })}
     </div>
   );
 }
